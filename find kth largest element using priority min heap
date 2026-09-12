@@ -1,0 +1,12 @@
+import heapq
+
+def findKthLargest(nums, k):
+    pq = []                              # Create an empty min-priority queue
+
+    for num in nums:                     # Visit every number in the array
+        heapq.heappush(pq, num)          # Add the number to the priority queue
+
+        if len(pq) > k:                  # If we have more than k elements
+            heapq.heappop(pq)            # Remove the smallest element
+
+    return pq[0]                         # Smallest of k largest elements
